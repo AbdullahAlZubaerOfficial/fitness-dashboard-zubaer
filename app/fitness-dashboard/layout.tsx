@@ -1,5 +1,6 @@
+import Sidebar from "@/components/CustomComponents/Slidebar/Slidebar";
 import { ReactNode } from "react";
-import Sidebar from "../components/Slidebar/Slidebar";
+
 
 
 

@@ -4,16 +4,11 @@ import Link from "next/link";
 import {
   LayoutDashboard,
   Users,
-  Eye,
-  PieChart,
-  CreditCard,
-  Shield,
-  Store,
+  Play,
+  Settings,
   Menu,
   X,
   LogOut,
-  Settings,
-  Play,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -25,14 +20,12 @@ const navItems = [
   { icon: Users, label: "Users", href: "/fitness-dashboard/users" },
   { icon: Play, label: "Trainers", href: "/fitness-dashboard/trainers" },
   { icon: Settings, label: "Settings", href: "/fitness-dashboard/settings" },
-,
 ];
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  // Determine if current route is active
   const isActive = (href: string) => {
     if (href === "/fitness-dashboard") {
       return pathname === "/fitness-dashboard";
@@ -40,12 +33,10 @@ export default function Sidebar() {
     return pathname.startsWith(href);
   };
 
-  // Close sidebar on route change (mobile)
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
-  // Close sidebar on Escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
@@ -56,7 +47,6 @@ export default function Sidebar() {
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen]);
 
-  // Prevent body scroll when sidebar is open on mobile
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -70,7 +60,7 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* Mobile Header - Visible only on small screens */}
+      {/* Mobile Header */}
       <header className="lg:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 bg-white border-b border-gray-200 shadow-sm">
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -104,7 +94,7 @@ export default function Sidebar() {
         />
       )}
 
-      {/* Sidebar - Fixed for all screen sizes */}
+      {/* Sidebar */}
       <aside
         className={`
           fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200
@@ -114,7 +104,6 @@ export default function Sidebar() {
           pt-16 lg:pt-0
         `}
       >
-        {/* Logo Container with fixed height */}
         <div className="hidden lg:flex items-center justify-center px-6 py-6 border-b border-gray-200">
           <Image
             src="/Image.png"
@@ -126,7 +115,6 @@ export default function Sidebar() {
           />
         </div>
 
-        {/* Scrollable Navigation Container */}
         <div className="flex-1 flex flex-col overflow-hidden">
           <nav className="flex-1 overflow-y-auto py-6 px-4 space-y-1">
             {navItems.map((item) => {
@@ -135,14 +123,14 @@ export default function Sidebar() {
 
               return (
                 <Link
-                  key={item.label}  
+                  key={item.label}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   className={`
                     flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 mb-1
                     ${active
-                      ? "bg-[#37B7AC] text-white shadow-sm border-l-4 border-[#2a8c83]"
-                      : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      ? "bg-blue-600 text-white shadow-sm border-l-4 border-blue-700"
+                      : "text-gray-700 hover:bg-blue-50 hover:text-blue-800"
                     }
                   `}
                   aria-current={active ? "page" : undefined}
@@ -154,13 +142,11 @@ export default function Sidebar() {
             })}
           </nav>
 
-          {/* Fixed Logout Button at bottom */}
           <div className="p-4 border-t border-gray-200 bg-white">
             <Button
               variant="outline"
               className="w-full justify-start py-6 text-left font-medium hover:bg-gray-100"
               onClick={() => {
-                // Add logout logic here
                 setIsOpen(false);
               }}
             >
@@ -171,7 +157,6 @@ export default function Sidebar() {
         </div>
       </aside>
 
-      {/* Spacer for mobile fixed header and sidebar spacing for content */}
       <div className="h-16 lg:pl-64" />
     </>
   );

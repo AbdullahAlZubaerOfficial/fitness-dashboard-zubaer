@@ -1,6 +1,7 @@
 "use client";
 
-import Users from "@/app/components/Users/Users";
+import Users from "@/components/CustomComponents/Users/Users";
+
 
 export default function AnalyticsPage() {
 

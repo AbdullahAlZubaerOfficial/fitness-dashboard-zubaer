@@ -20,7 +20,8 @@ import {
   FileText,
   Megaphone,
 } from "lucide-react";
-import DashboardHeader from "../components/DashboardHeader/DashboardHeader";
+import DashboardHeader from "@/components/CustomComponents/DashboardHeader/DashboardHeader";
+
 
 const chartData = [
   { time: "00:00", load: 40 },

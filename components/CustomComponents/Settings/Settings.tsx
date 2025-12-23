@@ -32,7 +32,7 @@ const Settings = () => {
     
     {/* content */}
              <div className="min-h-screen bg-white p-4 md:p-8">
-      <div className="max-w-8xl mx-auto space-y-8">
+      <div className="max-w-9xl mx-auto space-y-8">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Settings</h1>
           <p className="text-gray-500 mt-1">Manage your account preferences and system configuration</p>

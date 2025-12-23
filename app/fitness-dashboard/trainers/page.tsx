@@ -1,4 +1,5 @@
-import Trainers from '@/app/components/Trainers/Trainers'
+
+import Trainers from '@/components/CustomComponents/Trainers/Trainers'
 import React from 'react'
 
 const page = () => {
