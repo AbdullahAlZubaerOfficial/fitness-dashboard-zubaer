@@ -1,3 +1,6 @@
+### Dashboard Overview
+![Dashboard Overview](https://i.ibb.co/JRgXHrH2/image.png)
+
 # Fitness Dashboard 🏋️‍♂️💪
 
 A modern and interactive **Fitness Dashboard** built to track workouts, nutrition, and progress in a user-friendly interface.
